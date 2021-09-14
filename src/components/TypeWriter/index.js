@@ -13,7 +13,7 @@ const keyMessage = {
 }
 
 const capitalizeTheFirstLetterOfEachWord = (words) => {
-    var separateWord = words.toLowerCase().split(' ');
+    let separateWord = words.split(' ');
     for (var i = 0; i < separateWord.length; i++) {
        separateWord[i] = separateWord[i].charAt(0).toUpperCase() +
        separateWord[i].substring(1);
@@ -251,7 +251,8 @@ const show = ({name, key, user}) => {
 
 const TypeWriter = ({ query }) => {
     let { name } = query;
-    name = capitalizeTheFirstLetterOfEachWord(name);
+
+    name = capitalizeTheFirstLetterOfEachWord(String(name).toLowerCase());
     arr.push({
         key: 'goodnight',
         data: goodnight(name, 0)
