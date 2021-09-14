@@ -4,7 +4,7 @@ import styled from "styled-components"
 export const Item = styled.div.attrs(props => ({
     className: props.className
 }))`
-    padding-top: 5%;
+    padding-top: 1%;
     font-size: 1.5em;
     text-align: center;
     width: 100%;
@@ -14,6 +14,5 @@ export const Item = styled.div.attrs(props => ({
 `
 
 export const TextWrapper = styled.div`
-    padding-top: 5%;
 
 `
