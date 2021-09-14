@@ -7,7 +7,8 @@ moment.tz('Asia/Jakarta')
 
 const arr = [];
 const keyMessage = {
-    goodnight: 'goodnight'
+    goodnight: 'goodnight',
+    daylight: 'daylight'
 }
 
 const goodnight = (name, key) => {
@@ -40,6 +41,7 @@ const goodnight = (name, key) => {
                     .typeString(text6)
                     .pauseFor(500)
                     .typeString(text7)
+                    .pauseFor(1000)
                     .deleteAll(0.000000001)
                     .typeString('...<br><br><br>')
                     .typeString(`Dari Ucup untuk ${n}`)
@@ -54,18 +56,131 @@ const goodnight = (name, key) => {
     return data
 }
 
+const daylight = (name, key) => {
+    const n = name ? name: 'Stranger';
+    const text1 = `Buat ${n} yang selalu aku sayangi.`;
+    const text2 = '<br><br>Jangan lupa makan siang, ya!'
+    const text3 = '<br><br>Aku di sini selalu merindukanmu :D'
+    
+    const data = 
+        <Styles.TextWrapper key={key}>
+            <Typewriter
+                onInit={(typewriter) => {
+                    typewriter.typeString(text1)
+                    .pauseFor(500)
+                    .typeString(text2)
+                    .pauseFor(1000)
+                    .typeString(text3)
+                    .pauseFor(1000)
+                    .deleteAll(0.000000001)
+                    .typeString('...<br><br><br>')
+                    .typeString(`Dari Ucup untuk ${n}`)
+                    .typeString('<br><br>...')
+                    .start();
+                }}
+                options={{
+                    autoStart: true,
+                }}
+            />
+        </Styles.TextWrapper>
+    return data
+}
+
+const daylight2 = (name, key) => {
+    const n = name ? name: 'Stranger';
+    const text1 = `Hai ${n}, Selamat siang!`;
+    const text2 = '<br><br>Untukmu yang saat ini sedang '
+    const text3 = 'berjuang untuk menggapai kesuksesan.'
+    const text4 = '<br><br>Semoga kamu selalu semangat.'
+ 
+    const data = 
+        <Styles.TextWrapper key={key}>
+            <Typewriter
+                onInit={(typewriter) => {
+                    typewriter.typeString(text1)
+                    .pauseFor(500)
+                    .typeString(text2)
+                    .pauseFor(1000)
+                    .typeString(text3)
+                    .pauseFor(1000)
+                    .typeString(text4)
+                    .pauseFor(1000)
+                    .deleteAll(0.000000001)
+                    .typeString('...<br><br><br>')
+                    .typeString(`Dari Ucup untuk ${n}`)
+                    .typeString('<br><br>...')
+                    .start();
+                }}
+                options={{
+                    autoStart: true,
+                }}
+            />
+        </Styles.TextWrapper>
+    return data
+}
+
+const daylight3 = (name, key) => {
+    const n = name ? name: 'Stranger';
+    const text1 = `Hai, ${n}! Aku belum makan siang, nih.`;
+    const text2 = 'Soalnya, tadi mau makan nasinya anget langsung aja aku bawa ke dokter.'
+    const text3 = `<br><br>Takut kenapa-napa. Hehehe. `
+    const text4 = '<br><br>Kamu jangan lupa makan siang, ya!'
+ 
+    const data = 
+        <Styles.TextWrapper key={key}>
+            <Typewriter
+                onInit={(typewriter) => {
+                    typewriter.typeString(text1)
+                    .pauseFor(500)
+                    .deleteAll(0.000000000000001)
+                    .typeString(text2)
+                    .pauseFor(1000)
+                    .pauseFor(500)
+                    .typeString(text3)
+                    .pauseFor(500)
+                    .deleteAll(0.000000000000001)
+                    .typeString(text4)
+                    .pauseFor(1000)
+                    .deleteAll(0.000000000000001)
+                    .typeString('...<br><br><br>')
+                    .typeString(`Dari Ucup untuk ${n}`)
+                    .typeString('<br><br>...')
+                    .start();
+                }}
+                options={{
+                    autoStart: true,
+                }}
+            />
+        </Styles.TextWrapper>
+    return data
+}
+
 const show = ({name, key, user}) => {
+    const n = name ? name: 'Stranger';
     if(user === 'ucp' && key){
         const filter = arr.filter( el => {
             return el.key === key
-        }).map((obj, index) => <div key={index}>{obj.data}</div>)
-        return filter;
+        }).map((obj, index) => (obj.data))
+        const item = filter[Math.floor(Math.random()*filter.length)];
+        return item;
     }else{
         if(key){
-            const hour = moment().format("hh")
-            if(hour >= 21 && hour < 5 && key === keyMessage.goodnight){
+            const filter = arr.filter( el => {
+                return el.key === key
+            }).map((obj, index) => (obj.data))
+            const item = filter[Math.floor(Math.random()*filter.length)];
+            return item
+        }else{
+            let hour = moment().format("hh")
+            if(hour >= 10 && hour < 15){
                 const filter = arr.filter( el => {
-                    return el.key === key
+                    return el.key === keyMessage.daylight
+                }).map((obj, index) => (obj.data))
+                const item = filter[Math.floor(Math.random()*filter.length)];
+                return item
+            }else if(hour >= 21 && hour < 5){
+                const filter = arr.filter( el => {
+                    return el.key === keyMessage.goodnight
                 }).map((obj, index) => (obj.data))
                 const item = filter[Math.floor(Math.random()*filter.length)];
                 return item
@@ -73,7 +188,7 @@ const show = ({name, key, user}) => {
                 return (
                     <Typewriter
                         onInit={(typewriter) => {
-                            typewriter.typeString('<br><br>. . . . :)')
+                            typewriter.typeString(`<br><br>Hai ${n}!`)
                             .start();
                         }}
                         options={{
@@ -82,18 +197,6 @@ const show = ({name, key, user}) => {
                     />
                 )
             }
-        }else{
-            return (
-                <Typewriter
-                    onInit={(typewriter) => {
-                        typewriter.typeString('<br><br>. . . . :)')
-                        .start();
-                    }}
-                    options={{
-                        autoStart: true,
-                    }}
-                />
-            )
         }
     }
 }
@@ -106,8 +209,16 @@ const TypeWriter = ({ query }) => {
         data: [goodnight(name, 0)]
     })
     arr.push({
-        key: 'goodnights',
-        data: [goodnight(name, 0)]
+        key: 'daylight',
+        data: [daylight(name, 0)]
+    })
+    arr.push({
+        key: 'daylight',
+        data: [daylight2(name, 1)]
+    })
+    arr.push({
+        key: 'daylight',
+        data: [daylight3(name, 1)]
     })
     return(
         <Styles.Item>
