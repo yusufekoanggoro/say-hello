@@ -6,6 +6,9 @@ export default function HTML(props) {
     <html {...props.htmlAttributes}>
       <head>
         <title>Say Hello</title>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link href="https://fonts.gstatic.com" crossOrigin={true} />
+        <link href="https://fonts.googleapis.com/css2?family=Love+Ya+Like+A+Sister&display=swap" rel="stylesheet" />
         <meta charSet="utf-8" />
         <meta httpEquiv="x-ua-compatible" content="ie=edge" />
         <meta

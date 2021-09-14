@@ -1,13 +1,19 @@
 import styled from "styled-components"
 
 
-export const Item = styled.div`
-    padding: 20px;
-    font-family:cursive;
+export const Item = styled.div.attrs(props => ({
+    className: props.className
+}))`
+    padding: 0;
     font-size: 1.5em;
     text-align: center;
     width: 100%;
-    height: auto;
+    height: 100%;
     color:white;
-    
+    font-family: 'Love Ya Like A Sister', cursive;
+`
+
+export const TextWrapper = styled.div`
+    padding-top: 5%;
+
 `
