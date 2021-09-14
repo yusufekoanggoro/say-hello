@@ -12,9 +12,10 @@ export default function HTML(props) {
           name="viewport"
           content="width=device-width, initial-scale=1, shrink-to-fit=no"
         />
-        <meta name="description" content="TEST"></meta>
+        <meta name="description" content=". . ." />
+
         {/* Inject @artsy/fresnel styles in to the head */}
-        {/* <style type="text/css">{mediaStyles}</style> */}
+        <style type="text/css">{mediaStyles}</style>
         {props.headComponents}
       </head>
       <body {...props.bodyAttributes}>
