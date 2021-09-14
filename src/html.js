@@ -14,7 +14,7 @@ export default function HTML(props) {
         />
         <meta name="description" content="TEST"></meta>
         {/* Inject @artsy/fresnel styles in to the head */}
-        <style type="text/css">{mediaStyles}</style>
+        {/* <style type="text/css">{mediaStyles}</style> */}
         {props.headComponents}
       </head>
       <body {...props.bodyAttributes}>
