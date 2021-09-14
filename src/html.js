@@ -13,7 +13,7 @@ export default function HTML(props) {
           content="width=device-width, initial-scale=1, shrink-to-fit=no"
         />
         {/* Inject @artsy/fresnel styles in to the head */}
-        <style>{mediaStyles}</style>
+        <style type="text/css">{mediaStyles}</style>
         {props.headComponents}
       </head>
       <body {...props.bodyAttributes}>
