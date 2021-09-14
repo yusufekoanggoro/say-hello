@@ -4,10 +4,9 @@ import TypeWriter from "../components/TypeWriter/index"
 import withLocation from "../components/withLocation"
 
 const IndexPage = ({ search }) => {
-  const { name } = search;
   return((
     <Layout>
-        <TypeWriter name={name}></TypeWriter>
+        <TypeWriter query={search} ></TypeWriter>
     </Layout>
   ))
 }
