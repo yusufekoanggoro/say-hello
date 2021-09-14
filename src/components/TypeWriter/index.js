@@ -12,6 +12,15 @@ const keyMessage = {
     getting: 'gettingsick'
 }
 
+const capitalizeTheFirstLetterOfEachWord = (words) => {
+    var separateWord = words.toLowerCase().split(' ');
+    for (var i = 0; i < separateWord.length; i++) {
+       separateWord[i] = separateWord[i].charAt(0).toUpperCase() +
+       separateWord[i].substring(1);
+    }
+    return separateWord.join(' ');
+}
+
 const goodnight = (name, key) => {
     const n = name ? name: 'Stranger';
     const text1 = `Selamat malam kayang...`;
@@ -241,8 +250,8 @@ const show = ({name, key, user}) => {
 }
 
 const TypeWriter = ({ query }) => {
-    let { name} = query;
-
+    let { name } = query;
+    name = capitalizeTheFirstLetterOfEachWord(name);
     arr.push({
         key: 'goodnight',
         data: goodnight(name, 0)
