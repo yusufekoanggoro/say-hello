@@ -1,4 +1,19 @@
 *{
-    box-sizing: border-box;
-    padding: 0;
+    -ms-overflow-style: none;
+}
+::-webkit-scrollbar {
+    display: none;
+}
+
+html, body, #___gatsby, #gatsby-focus-wrapper {
+    height: 100%;
+}
+
+body {
+    margin: 0px;
+    background-image: url("https://i.pinimg.com/originals/51/d8/37/51d8374126446d495348b6032202126f.jpg");
+    z-index:-1;
+    background-position: center; /* Center the image */
+    background-repeat: no-repeat; /* Do not repeat the image */
+    background-size: cover; /* Resize the background image to cover the entire container */
 }

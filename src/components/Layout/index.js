@@ -1,12 +1,17 @@
 import * as React from "react"
 import PropTypes from "prop-types"
 import * as Styles from "./style"
+import { Media } from "../../Media"
 
 const Layout = ({ children }) => {
   return (
-    <Styles.Container>
-        {children}
-    </Styles.Container>
+    <>
+      <Media lessThan="md">
+        <Styles.Container>
+          {children}
+        </Styles.Container>
+      </Media>
+    </>
   )
 }
 
