@@ -8,7 +8,8 @@ moment.tz('Asia/Jakarta')
 const arr = [];
 const keyMessage = {
     goodnight: 'goodnight',
-    daylight: 'daylight'
+    daylight: 'daylight',
+    getting: 'gettingsick'
 }
 
 const goodnight = (name, key) => {
@@ -155,12 +156,50 @@ const daylight3 = (name, key) => {
     return data
 }
 
+const gettingSick = (name, key) => {
+    const n = name ? name: 'Stranger';
+    const text1 = `Hai, ${n}!`;
+    const text2 = '<br><br>Tidak ada satupun orang yang menghendaki dirinya tertimpa penyakit.'
+    const text3 = `<br><br>Namun penyakit datang tanpa pandang bulu.`
+    const text4 = '<br><br>Aku turut sedih mendengar kau tertimpa penyakit.'
+    const text5 = '<br><br>Mudah-mudahan segera cepat sembuh dan bisa beraktivitas seperti sedia kala. Aamiiin'
+ 
+    const data = 
+        <Styles.TextWrapper key={key}>
+            <Typewriter
+                onInit={(typewriter) => {
+                    typewriter.typeString(text1)
+                    .pauseFor(500)
+                    .typeString(text2)
+                    .pauseFor(1000)
+                    .typeString(text3)
+                    .pauseFor(500)
+                    .typeString(text4)
+                    .pauseFor(1000)
+                    .deleteAll(0.000000000000001)
+                    .typeString(text5)
+                    .pauseFor(1000)
+                    .deleteAll(0.000000000000001)
+                    .typeString('...<br><br><br>')
+                    .typeString(`Dari Ucup untuk ${n}`)
+                    .typeString('<br><br>...')
+                    .start();
+                }}
+                options={{
+                    autoStart: true,
+                }}
+            />
+        </Styles.TextWrapper>
+    return data
+}
+
 const show = ({name, key, user}) => {
     const n = name ? name: 'Stranger';
     if(user === 'ucp' && key){
         const filter = arr.filter( el => {
             return el.key === key
         }).map((obj, index) => (obj.data))
+        console.log(filter)
         const item = filter[Math.floor(Math.random()*filter.length)];
         return item;
     }else{
@@ -206,19 +245,23 @@ const TypeWriter = ({ query }) => {
 
     arr.push({
         key: 'goodnight',
-        data: [goodnight(name, 0)]
+        data: goodnight(name, 0)
     })
     arr.push({
         key: 'daylight',
-        data: [daylight(name, 0)]
+        data: daylight(name, 0)
     })
     arr.push({
         key: 'daylight',
-        data: [daylight2(name, 1)]
+        data: daylight2(name, 1)
     })
     arr.push({
         key: 'daylight',
-        data: [daylight3(name, 1)]
+        data: daylight3(name, 1)
+    })
+    arr.push({
+        key: 'gettingsick',
+        data: gettingSick(name, 1)
     })
     return(
         <Styles.Item>
