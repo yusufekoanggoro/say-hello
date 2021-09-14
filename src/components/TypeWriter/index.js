@@ -6,10 +6,12 @@ import moment from 'moment-timezone';
 moment.tz('Asia/Jakarta')
 
 const arr = [];
-const keyMessage = {
+const keywordMessage = {
     goodnight: 'goodnight',
     daylight: 'daylight',
-    getting: 'gettingsick'
+    getting: 'gettingsick',
+    night: 'night',
+    gomballucu: 'gomballucu'
 }
 
 const capitalizeTheFirstLetterOfEachWord = (words) => {
@@ -132,7 +134,7 @@ const daylight2 = (name, key) => {
 const daylight3 = (name, key) => {
     const n = name ? name: 'Stranger';
     const text1 = `Hai, ${n}! Aku belum makan siang, nih.`;
-    const text2 = 'Soalnya, tadi mau makan nasinya anget langsung aja aku bawa ke dokter.'
+    const text2 = '<br><br>Soalnya, tadi mau makan nasinya anget langsung aja aku bawa ke dokter.'
     const text3 = `<br><br>Takut kenapa-napa. Hehehe. `
     const text4 = '<br><br>Kamu jangan lupa makan siang, ya!'
  
@@ -142,13 +144,11 @@ const daylight3 = (name, key) => {
                 onInit={(typewriter) => {
                     typewriter.typeString(text1)
                     .pauseFor(500)
-                    .deleteAll(0.000000000000001)
                     .typeString(text2)
                     .pauseFor(1000)
                     .pauseFor(500)
                     .typeString(text3)
                     .pauseFor(500)
-                    .deleteAll(0.000000000000001)
                     .typeString(text4)
                     .pauseFor(1000)
                     .deleteAll(0.000000000000001)
@@ -202,19 +202,95 @@ const gettingSick = (name, key) => {
     return data
 }
 
-const show = ({name, key, user}) => {
+const night = (name, key) => {
     const n = name ? name: 'Stranger';
-    if(user === 'ucp' && key){
+    const text1 = `Hai, ${n}!`;
+    const text2 = `<br><br>Jangan tidur larut malam ya, ${n}, `;
+    const text3 = 'dan jangan menunda-nunda lagi.'
+    const text4 = '<br><br>Segeralah tidur '
+    const text5 = 'karena aku hanya ingin'
+    const text6 = ' cepat melihat senyum pagimu '
+    const text7 = 'yang indah di esok hari.'
+ 
+    const data = 
+        <Styles.TextWrapper key={key}>
+            <Typewriter
+                onInit={(typewriter) => {
+                    typewriter.typeString(text1)
+                    .pauseFor(500)
+                    .typeString(text2)
+                    .pauseFor(1000)
+                    .typeString(text3)
+                    .pauseFor(1000)
+                    .typeString(text4)
+                    .pauseFor(1000)
+                    .typeString(text5)
+                    .pauseFor(1000)
+                    .typeString(text6)
+                    .pauseFor(1000)
+                    .typeString(text7)
+                    .pauseFor(1000)
+                    .deleteAll(0.000000000000001)
+                    .typeString('...<br><br><br>')
+                    .typeString(`Dari Ucup untuk ${n}`)
+                    .typeString('<br><br>...')
+                    .start();
+                }}
+                options={{
+                    autoStart: true,
+                }}
+            />
+        </Styles.TextWrapper>
+    return data
+}
+
+const gomballucu = (name, key) => {
+    const n = name ? name: 'Stranger';
+    const text1 = `Kamu itu ibarat embun di pagi hari.`;
+    const text2 = `<br><br>Sejuk dan indah, `;
+    const text3 = 'namun aku tidak pernah tau itu'
+    const text4 = '<br><br>karna bangunku siaang :D'
+ 
+    const data = 
+        <Styles.TextWrapper key={key}>
+            <Typewriter
+                onInit={(typewriter) => {
+                    typewriter.typeString(text1)
+                    .pauseFor(500)
+                    .typeString(text2)
+                    .pauseFor(1000)
+                    .typeString(text3)
+                    .pauseFor(1500)
+                    .typeString(text4)
+                    .pauseFor(1000)
+                    .deleteAll(0.000000000000001)
+                    .typeString('...<br><br><br>')
+                    .typeString(`Dari Ucup untuk ${n}`)
+                    .typeString('<br><br>...')
+                    .start();
+                }}
+                options={{
+                    autoStart: true,
+                }}
+            />
+        </Styles.TextWrapper>
+    return data
+}
+
+const show = ({name, keyword, user}) => {
+    const n = name ? name: 'Stranger';
+    if(user === 'ucp' && keyword){
         const filter = arr.filter( el => {
-            return el.key === key
+            return el.keyword === keyword
         }).map((obj, index) => (obj.data))
         console.log(filter)
-        const item = filter[Math.floor(Math.random()*filter.length)];
+        // Math.floor(Math.random()*filter.length)
+        const item = filter[2];
         return item;
     }else{
-        if(key){
+        if(keyword){
             const filter = arr.filter( el => {
-                return el.key === key
+                return el.keyword === keyword
             }).map((obj, index) => (obj.data))
             const item = filter[Math.floor(Math.random()*filter.length)];
             return item
@@ -222,13 +298,13 @@ const show = ({name, key, user}) => {
             let hour = moment().format("hh")
             if(hour >= 10 && hour < 15){
                 const filter = arr.filter( el => {
-                    return el.key === keyMessage.daylight
+                    return el.key === keywordMessage.daylight
                 }).map((obj, index) => (obj.data))
                 const item = filter[Math.floor(Math.random()*filter.length)];
                 return item
             }else if(hour >= 21 && hour < 5){
                 const filter = arr.filter( el => {
-                    return el.key === keyMessage.goodnight
+                    return el.keyword === keywordMessage.goodnight
                 }).map((obj, index) => (obj.data))
                 const item = filter[Math.floor(Math.random()*filter.length)];
                 return item
@@ -254,24 +330,32 @@ const TypeWriter = ({ query }) => {
 
     name = capitalizeTheFirstLetterOfEachWord(String(name).toLowerCase());
     arr.push({
-        key: 'goodnight',
+        keyword: 'goodnight',
         data: goodnight(name, 0)
     })
     arr.push({
-        key: 'daylight',
+        keyword: 'daylight',
         data: daylight(name, 0)
     })
     arr.push({
-        key: 'daylight',
+        keyword: 'daylight',
         data: daylight2(name, 1)
     })
     arr.push({
-        key: 'daylight',
+        keyword: 'daylight',
         data: daylight3(name, 1)
     })
     arr.push({
-        key: 'gettingsick',
+        keyword: 'gettingsick',
         data: gettingSick(name, 1)
+    })
+    arr.push({
+        keyword: keywordMessage.night,
+        data: night(name, 1)
+    })
+    arr.push({
+        keyword: keywordMessage.gomballucu,
+        data: gomballucu(name, 1)
     })
     return(
         <Styles.Item>
