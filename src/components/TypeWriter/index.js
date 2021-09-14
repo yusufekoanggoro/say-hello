@@ -5,7 +5,9 @@ import Typewriter from 'typewriter-effect';
 import moment from 'moment-timezone';
 moment.tz('Asia/Jakarta')
 
-const goodnight = (name, user) => {
+const arr = [];
+
+const goodnight = (name) => {
     const n = name ? name: 'Stranger';
     const text1 = `Selamat malam kayang...`;
     const text2 = 'sayang...'
@@ -14,7 +16,6 @@ const goodnight = (name, user) => {
     const text5 = `<br><br>Selamat tidur, kamu yang selalu`;
     const text6 = ` ada dalam tiap doaku.`;
     const text7 = '<br><br>Semoga kamu selalu bahagia.'
-    const hour = moment().format("hh")
 
     const data = <Typewriter
         onInit={(typewriter) => {
@@ -36,7 +37,7 @@ const goodnight = (name, user) => {
             .typeString(text7)
             .deleteAll(0.000000001)
             .typeString('...<br><br><br>')
-            .typeString(`Dari ucup untuk ${n}`)
+            .typeString(`Dari Ucup untuk ${n}`)
             .typeString('<br><br>...')
             .start();
         }}
@@ -44,45 +45,52 @@ const goodnight = (name, user) => {
             autoStart: true,
         }}
     />
-    if(hour >= 10 && hour < 5){
-        return data;
+
+    return data
+}
+
+const show = ({name, key, user}) => {
+    if(user === 'ucp' && key){
+        const filter = arr.filter( el => {
+            return el.key === key
+        }).map((obj, index) => <div key={index}>{obj.data}</div>)
+        return filter;
+    }else{
+        const hour = moment().format("hh")
+        if(hour >= 9 && hour < 5){
+            return goodnight(name);
+        }else{
+            return (
+                <Typewriter
+                    onInit={(typewriter) => {
+                        typewriter.typeString('<br><br>. . . . :)')
+                        .start();
+                    }}
+                    options={{
+                        autoStart: true,
+                    }}
+                />
+            )
+            
+        }
     }
-    if(user === 'Yusuf'){
-        return data
-    }
-    return (
-        <Typewriter
-                onInit={(typewriter) => {
-                    typewriter.typeString('<br><br>... :)')
-                    .start();
-                }}
-                options={{
-                    autoStart: true,
-                }}
-            />
-    )
 }
 
 const TypeWriter = ({ query }) => {
-    let { name, key, user} = query;
-    const arr = [];
+    let { name} = query;
 
     arr.push({
         key: 'goodnight',
-        data: goodnight(name, user)
+        data: goodnight(name)
     })
     arr.push({
         key: 'goodnights',
-        data: goodnight(name, user)
+        data: goodnight(name)
     })
 
     return(
         <Styles.Item>
-            {
-                arr.filter( el => {
-                    return el.key === key
-                }).map((obj, index) => <div key={index}>{obj.data}</div>)
-            }
+            {show(query)}
         </Styles.Item>
     )
 }
