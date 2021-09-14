@@ -6,7 +6,7 @@ import { Media } from "../../Media"
 const Layout = ({ children }) => {
   return (
     <>
-      <Media lessThan="md">
+      <Media lessThan="sm">
         <Styles.Container>
           {children}
         </Styles.Container>
