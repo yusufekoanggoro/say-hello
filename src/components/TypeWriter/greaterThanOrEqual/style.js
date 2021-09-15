@@ -4,8 +4,8 @@ import styled from "styled-components"
 export const Item = styled.div.attrs(props => ({
     className: props.className
 }))`
-    padding: 5%;
-    font-size: 2em;
+    padding: 2%;
+    font-size: 3em;
     text-align: center;
     width: 100%;
     height: 100%;
