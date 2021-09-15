@@ -279,7 +279,7 @@ const gomballucu = (name, key) => {
 } 
 
 const morning = (name, key) => {
-    const n = name ? name: 'Stranger';
+    const n = name ? name: 'kamu';
     const text1 = `Selamat pagi`;
     const text2 = ` untuk wanita paling cantik yang pernah ada!`;
  
