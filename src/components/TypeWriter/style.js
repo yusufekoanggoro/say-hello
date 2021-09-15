@@ -5,7 +5,7 @@ export const Item = styled.div.attrs(props => ({
     className: props.className
 }))`
     padding: 5%;
-    font-size: 1.5em;
+    font-size: 1.8em;
     text-align: center;
     width: 100%;
     height: 100%;

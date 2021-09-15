@@ -344,6 +344,90 @@ const morning2 = (name, key) => {
     return data
 }
 
+const morning3 = (name, key) => {
+    const n = name ? name: 'kamu';
+    const text1 = `Selamat pagi... `;
+    const text2 = 'untukmu yang ';
+    const text3 = 'gengsi untuk bilang kangen duluan.'
+ 
+    const data = 
+        <Styles.TextWrapper key={key}>
+            <Typewriter
+                onInit={(typewriter) => {
+                    typewriter.typeString(text1)
+                    .pauseFor(1000)
+                    .typeString(text2)
+                    .pauseFor(500)
+                    .typeString(text3)
+                    .pauseFor(1000)
+                    .deleteAll(0.000000000000001)
+                    .typeString('...<br><br><br>')
+                    .typeString(`Dari Ucup untuk ${n}`)
+                    .typeString('<br><br>...')
+                    .start();
+                }}
+                options={{
+                    autoStart: true,
+                }}
+            />
+        </Styles.TextWrapper>
+    return data
+}
+
+const morning4 = (name, key) => {
+    const n = name ? name: 'kamu';
+    const text1 = `Selamat pagi,`;
+    const text2 = ' semoga kamu lebih peka dari hari kemarin.';
+ 
+    const data = 
+        <Styles.TextWrapper key={key}>
+            <Typewriter
+                onInit={(typewriter) => {
+                    typewriter.typeString(text1)
+                    .pauseFor(1000)
+                    .typeString(text2)
+                    .pauseFor(500)
+                    .deleteAll(0.000000000000001)
+                    .typeString('...<br><br><br>')
+                    .typeString(`Dari Ucup untuk ${n}`)
+                    .typeString('<br><br>...')
+                    .start();
+                }}
+                options={{
+                    autoStart: true,
+                }}
+            />
+        </Styles.TextWrapper>
+    return data
+}
+
+const morning5 = (name, key) => {
+    const n = name ? name: 'kamu';
+    const text1 = `Nonton dangdut sambil goyang,`;
+    const text2 = '<br><br>Selamat pagi sayang...';
+ 
+    const data = 
+        <Styles.TextWrapper key={key}>
+            <Typewriter
+                onInit={(typewriter) => {
+                    typewriter.typeString(text1)
+                    .pauseFor(1000)
+                    .typeString(text2)
+                    .pauseFor(500)
+                    .deleteAll(0.000000000000001)
+                    .typeString('...<br><br><br>')
+                    .typeString(`Dari Ucup untuk ${n}`)
+                    .typeString('<br><br>...')
+                    .start();
+                }}
+                options={{
+                    autoStart: true,
+                }}
+            />
+        </Styles.TextWrapper>
+    return data
+}
+
 const show = ({name, keyword, user}) => {
     const n = name ? name: 'Stranger';
     if(user === 'ucp' && keyword){
@@ -436,6 +520,18 @@ const TypeWriter = ({ query }) => {
     arr.push({
         keyword: keywordMessage.morning,
         data: morning2(name, 1)
+    })
+    arr.push({
+        keyword: keywordMessage.morning,
+        data: morning3(name, 1)
+    })
+    arr.push({
+        keyword: keywordMessage.morning,
+        data: morning4(name, 1)
+    })
+    arr.push({
+        keyword: keywordMessage.morning,
+        data: morning5(name, 1)
     })
     return(
         <Styles.Item>
