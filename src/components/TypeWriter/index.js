@@ -120,7 +120,7 @@ const daylight2 = (name, key) => {
                     .pauseFor(1000)
                     .deleteAll(0.000000001)
                     .typeString('...<br><br><br>')
-                    .typeString(`Dari Ucup untuk ${n}`)
+                    .typeString(`Dari Ucup untuk ${name ? name : 'Kamu'}`)
                     .typeString('<br><br>...')
                     .start();
                 }}
@@ -154,7 +154,7 @@ const daylight3 = (name, key) => {
                     .pauseFor(1000)
                     .deleteAll(0.000000000000001)
                     .typeString('...<br><br><br>')
-                    .typeString(`Dari Ucup untuk ${n}`)
+                    .typeString(`Dari Ucup untuk ${name ? name : 'Kamu'}`)
                     .typeString('<br><br>...')
                     .start();
                 }}
@@ -204,7 +204,7 @@ const gettingSick = (name, key) => {
 }
 
 const night = (name, key) => {
-    const n = name ? name: 'Stranger';
+    const n = name ? name: 'Maniiis';
     const text1 = `Hai, ${n}!`;
     const text2 = `<br><br>Jangan tidur larut malam ya, ${n}, `;
     const text3 = 'dan jangan menunda-nunda lagi.'
@@ -233,7 +233,7 @@ const night = (name, key) => {
                     .pauseFor(1000)
                     .deleteAll(0.000000000000001)
                     .typeString('...<br><br><br>')
-                    .typeString(`Dari Ucup untuk ${n}`)
+                    .typeString(`Dari Ucup untuk ${name ? name : 'Kamu'}`)
                     .typeString('<br><br>...')
                     .start();
                 }}
@@ -306,7 +306,7 @@ const morning = (name, key) => {
 }
 
 const morning2 = (name, key) => {
-    const n = name ? name: 'kamu';
+    const n = name ? name: 'Kamu';
     const text1 = `Kamu adalah `;
     const text2 = 'orang yang pertama '
     const text3 = `aku beri ucapan 'selamat pagi'`
@@ -345,7 +345,7 @@ const morning2 = (name, key) => {
 }
 
 const morning3 = (name, key) => {
-    const n = name ? name: 'kamu';
+    const n = name ? name: 'Kamu';
     const text1 = `Selamat pagi... `;
     const text2 = 'untukmu yang ';
     const text3 = 'gengsi untuk bilang kangen duluan.'
@@ -375,7 +375,7 @@ const morning3 = (name, key) => {
 }
 
 const morning4 = (name, key) => {
-    const n = name ? name: 'kamu';
+    const n = name ? name: 'Kamu';
     const text1 = `Selamat pagi,`;
     const text2 = ' semoga kamu lebih peka dari hari kemarin.';
  
@@ -402,7 +402,7 @@ const morning4 = (name, key) => {
 }
 
 const morning5 = (name, key) => {
-    const n = name ? name: 'kamu';
+    const n = name ? name: 'Kamu';
     const text1 = `Nonton dangdut sambil goyang,`;
     const text2 = '<br><br>Selamat pagi sayang...';
  
@@ -429,7 +429,7 @@ const morning5 = (name, key) => {
 }
 
 const show = ({name, keyword, user}) => {
-    const n = name ? name: 'Stranger';
+    const n = name ? name: 'Maniiis';
     if(user === 'ucp' && keyword){
         const filter = arr.filter( el => {
             return el.keyword === keyword
