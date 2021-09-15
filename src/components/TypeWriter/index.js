@@ -560,7 +560,7 @@ const show = ({name, keyword, user}) => {
             const item = filter[Math.floor(Math.random()*filter.length)];
             return item
         }else{
-            let hour = moment().format("hh")
+            let hour = moment().format("HH")
             if (hour > 3 && hour < 11){
                 const filter = arr.filter( el => {
                     return el.keyword === keywordMessage.morning
