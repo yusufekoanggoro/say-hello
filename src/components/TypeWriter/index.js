@@ -1,4 +1,4 @@
-import React from "react"
+import * as React from "react"
 import * as Styles from "./style"
 import Typewriter from 'typewriter-effect';
 // import Typist from 'react-typist'
