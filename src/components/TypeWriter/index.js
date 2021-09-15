@@ -561,7 +561,6 @@ const show = ({name, keyword, user}) => {
             return item
         }else{
             let hour = moment().format("hh")
-            hour = 4;
             if (hour > 3 && hour < 11){
                 const filter = arr.filter( el => {
                     return el.keyword === keywordMessage.morning
