@@ -11,7 +11,8 @@ const keywordMessage = {
     daylight: 'daylight',
     getting: 'gettingsick',
     night: 'night',
-    gomballucu: 'gomballucu'
+    gomballucu: 'gomballucu',
+    morning: 'morning'
 }
 
 const capitalizeTheFirstLetterOfEachWord = (words) => {
@@ -275,6 +276,33 @@ const gomballucu = (name, key) => {
             />
         </Styles.TextWrapper>
     return data
+} 
+
+const morning = (name, key) => {
+    const n = name ? name: 'Stranger';
+    const text1 = `Selamat pagi`;
+    const text2 = ` untuk wanita paling cantik yang pernah ada!`;
+ 
+    const data = 
+        <Styles.TextWrapper key={key}>
+            <Typewriter
+                onInit={(typewriter) => {
+                    typewriter.typeString(text1)
+                    .pauseFor(600)
+                    .typeString(text2)
+                    .pauseFor(1000)
+                    .deleteAll(0.000000000000001)
+                    .typeString('...<br><br><br>')
+                    .typeString(`Dari Ucup untuk ${n}`)
+                    .typeString('<br><br>...')
+                    .start();
+                }}
+                options={{
+                    autoStart: true,
+                }}
+            />
+        </Styles.TextWrapper>
+    return data
 }
 
 const show = ({name, keyword, user}) => {
@@ -283,9 +311,7 @@ const show = ({name, keyword, user}) => {
         const filter = arr.filter( el => {
             return el.keyword === keyword
         }).map((obj, index) => (obj.data))
-        console.log(filter)
-        // Math.floor(Math.random()*filter.length)
-        const item = filter[2];
+        const item = filter[Math.floor(Math.random()*filter.length)]
         return item;
     }else{
         if(keyword){
@@ -296,23 +322,23 @@ const show = ({name, keyword, user}) => {
             return item
         }else{
             let hour = moment().format("hh")
-            if(hour >= 10 && hour < 15){
+            if (hour > 3 && hour < 11){
+                const filter = arr.filter( el => {
+                    return el.keyword === keywordMessage.morning
+                }).map((obj, index) => (obj.data))
+                const item = filter[Math.floor(Math.random()*filter.length)];
+                return item
+            }else if(hour > 10 && hour < 15){
                 const filter = arr.filter( el => {
                     return el.key === keywordMessage.daylight
                 }).map((obj, index) => (obj.data))
                 const item = filter[Math.floor(Math.random()*filter.length)];
                 return item
-            }else if(hour >= 21 && hour < 5){
-                const filter = arr.filter( el => {
-                    return el.keyword === keywordMessage.goodnight
-                }).map((obj, index) => (obj.data))
-                const item = filter[Math.floor(Math.random()*filter.length)];
-                return item
-            }else{
+            }else if(hour > 14 && hour < 18){
                 return (
                     <Typewriter
                         onInit={(typewriter) => {
-                            typewriter.typeString(`<br><br>Hai ${n}!`)
+                            typewriter.typeString(`<br><br>Selamat Sore ${n}!`)
                             .start();
                         }}
                         options={{
@@ -320,6 +346,12 @@ const show = ({name, keyword, user}) => {
                         }}
                     />
                 )
+            }else if(hour >= 18 && hour < 24){
+                const filter = arr.filter( el => {
+                    return el.keyword === keywordMessage.night
+                }).map((obj, index) => (obj.data))
+                const item = filter[Math.floor(Math.random()*filter.length)];
+                return item
             }
         }
     }
@@ -327,8 +359,9 @@ const show = ({name, keyword, user}) => {
 
 const TypeWriter = ({ query }) => {
     let { name } = query;
-
-    name = capitalizeTheFirstLetterOfEachWord(String(name).toLowerCase());
+    if(name){
+        name = capitalizeTheFirstLetterOfEachWord(String(name).toLowerCase());
+    }
     arr.push({
         keyword: 'goodnight',
         data: goodnight(name, 0)
@@ -356,6 +389,10 @@ const TypeWriter = ({ query }) => {
     arr.push({
         keyword: keywordMessage.gomballucu,
         data: gomballucu(name, 1)
+    })
+    arr.push({
+        keyword: keywordMessage.morning,
+        data: morning(name, 1)
     })
     return(
         <Styles.Item>
