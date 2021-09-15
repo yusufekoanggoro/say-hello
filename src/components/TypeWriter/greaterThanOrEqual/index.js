@@ -70,7 +70,7 @@ const goodnight = (name, key) => {
 }
 
 const daylight = (name, key) => {
-    const n = name ? name: 'Stranger';
+    const n = name ? name: 'Kamu';
     const text1 = `Buat ${n} yang selalu aku sayangi.`;
     const text2 = '<br><br>Jangan lupa makan siang, ya!'
     const text3 = '<br><br>Aku di sini selalu merindukanmu :D'
@@ -100,7 +100,7 @@ const daylight = (name, key) => {
 }
 
 const daylight2 = (name, key) => {
-    const n = name ? name: 'Stranger';
+    const n = name ? name: 'Maniis';
     const text1 = `Hai ${n}, Selamat siang!`;
     const text2 = '<br><br>Untukmu yang saat ini sedang '
     const text3 = 'berjuang untuk menggapai kesuksesan.'
@@ -133,7 +133,7 @@ const daylight2 = (name, key) => {
 }
 
 const daylight3 = (name, key) => {
-    const n = name ? name: 'Stranger';
+    const n = name ? name: 'Maniiis';
     const text1 = `Hai, ${n}! Aku belum makan siang, nih.`;
     const text2 = '<br><br>Soalnya, tadi mau makan nasinya anget langsung aja aku bawa ke dokter.'
     const text3 = `<br><br>Takut kenapa-napa. Hehehe. `
@@ -453,7 +453,7 @@ const show = ({name, keyword, user}) => {
                 return item
             }else if(hour > 10 && hour < 15){
                 const filter = arr.filter( el => {
-                    return el.key === keywordMessage.daylight
+                    return el.keyword === keywordMessage.daylight
                 }).map((obj, index) => (obj.data))
                 const item = filter[Math.floor(Math.random()*filter.length)];
                 return item
