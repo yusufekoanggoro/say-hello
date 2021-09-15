@@ -305,6 +305,45 @@ const morning = (name, key) => {
     return data
 }
 
+const morning2 = (name, key) => {
+    const n = name ? name: 'kamu';
+    const text1 = `Kamu adalah `;
+    const text2 = 'orang yang pertama '
+    const text3 = `aku beri ucapan 'selamat pagi'`
+    const text4 = `<br><br>meski aku punya banyak teman,`;
+    const text5 = ` mulai dari yang jelek sampai yang cakep`
+    const text6 = '<br><br>Namun aku Lebih memilih dari yang jelek dulu :DDDD'
+ 
+    const data = 
+        <Styles.TextWrapper key={key}>
+            <Typewriter
+                onInit={(typewriter) => {
+                    typewriter.typeString(text1)
+                    .pauseFor(500)
+                    .typeString(text2)
+                    .pauseFor(500)
+                    .typeString(text3)
+                    .pauseFor(1000)
+                    .typeString(text4)
+                    .pauseFor(1000)
+                    .typeString(text5)
+                    .pauseFor(1000)
+                    .typeString(text6)
+                    .pauseFor(1000)
+                    .deleteAll(0.000000000000001)
+                    .typeString('...<br><br><br>')
+                    .typeString(`Dari Ucup untuk ${n}`)
+                    .typeString('<br><br>...')
+                    .start();
+                }}
+                options={{
+                    autoStart: true,
+                }}
+            />
+        </Styles.TextWrapper>
+    return data
+}
+
 const show = ({name, keyword, user}) => {
     const n = name ? name: 'Stranger';
     if(user === 'ucp' && keyword){
@@ -393,6 +432,10 @@ const TypeWriter = ({ query }) => {
     arr.push({
         keyword: keywordMessage.morning,
         data: morning(name, 1)
+    })
+    arr.push({
+        keyword: keywordMessage.morning,
+        data: morning2(name, 1)
     })
     return(
         <Styles.Item>
