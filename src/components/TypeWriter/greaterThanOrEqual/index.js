@@ -561,12 +561,10 @@ const show = ({name, keyword, user}) => {
             return item
         }else{
             let hour = moment().format("hh")
-            hour = 4;
             if (hour > 3 && hour < 11){
                 const filter = arr.filter( el => {
                     return el.keyword === keywordMessage.morning
                 }).map((obj, index) => (obj.data))
-                console.log(filter.length)
                 const item = filter[Math.floor(Math.random()*filter.length)];
                 return item
             }else if(hour > 10 && hour < 15){
@@ -576,7 +574,6 @@ const show = ({name, keyword, user}) => {
                 const item = filter[Math.floor(Math.random()*filter.length)];
                 return item
             }else if(hour > 14 && hour < 18){
-                console.log('masukin')
                 const filter = arr.filter( el => {
                     return el.keyword === keywordMessage.quotes || el.keyword === keywordMessage.gomballucu
                 }).map((obj, index) => (obj.data))
@@ -588,6 +585,19 @@ const show = ({name, keyword, user}) => {
                 }).map((obj, index) => (obj.data))
                 const item = filter[Math.floor(Math.random()*filter.length)];
                 return item
+            }else{
+                return(
+                    <Typewriter
+                        onInit={(typewriter) => {
+                            typewriter.typeString("Hai Maniiis")
+                            .pauseFor(1000)
+                            .start();
+                        }}
+                        options={{
+                            autoStart: true,
+                        }}
+                    />
+                )
             }
         }
     }
