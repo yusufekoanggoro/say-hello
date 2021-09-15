@@ -554,7 +554,16 @@ const show = ({name, keyword, user}) => {
         return item;
     }else{
         if(keyword){
-            const filter = arr.filter( el => {
+            let hour = moment().format("HH")
+            let filter;
+            if(hour >= 21 && hour < 3 && keyword === keywordMessage.goodnight){
+                filter = arr.filter( el => {
+                    return el.keyword === keywordMessage.goodnight
+                }).map((obj, index) => (obj.data))
+                const item = filter[Math.floor(Math.random()*filter.length)];
+                return item
+            }
+            filter = arr.filter( el => {
                 return el.keyword === keyword
             }).map((obj, index) => (obj.data))
             const item = filter[Math.floor(Math.random()*filter.length)];
