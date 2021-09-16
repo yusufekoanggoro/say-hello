@@ -588,7 +588,7 @@ const show = ({name, keyword, user}) => {
     }else{
         if(name){
             name = name + "!";
-            if(keyword){
+            if(keywordMessage.hasOwnProperty('keyword') === keyword){
                 let hour = moment().format("HH");
                 if(keyword === keywordMessage.goodnight){
                     if(hour > 20 && hour < 4){
