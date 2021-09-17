@@ -9,11 +9,12 @@ const arr = [];
 const keywordMessage = {
     goodnight: 'goodnight',
     daylight: 'daylight',
-    getting: 'gettingsick',
+    gettingsick: 'gettingsick',
     night: 'night',
     gomballucu: 'gomballucu',
     quotes: 'quotes',
-    morning: 'morning'
+    morning: 'morning',
+    afternoon: 'afternoon'
 }
 
 const capitalizeTheFirstLetterOfEachWord = (words) => {
@@ -578,6 +579,38 @@ const quotes2 = (name, key) => {
     return data
 }
 
+const afternoon = (name, key) => {
+    const text1 = `Jadilah pribadi yang apa adanya, `;
+    const text2 = 'sampai kamu tidak butuh lelah bersandiwara.';
+    const text3 = '<br><br>Terkadang bukan nasib yang yang susah tapi kamu yang menyulitkan nasib.'
+    const text4 = `<br><br>Met sore ${name}...`
+
+    const data = 
+        <Styles.TextWrapper key={key}>
+            <Typewriter
+                onInit={(typewriter) => {
+                    typewriter.typeString(text1)
+                    .pauseFor(1000)
+                    .typeString(text2)
+                    .pauseFor(500)
+                    .typeString(text3)
+                    .pauseFor(500)
+                    .typeString(text4)
+                    .pauseFor(1000)
+                    .deleteAll(0.000000000000001)
+                    .typeString('...<br><br><br>')
+                    .typeString(`Terima Kasih`)
+                    .typeString('<br><br>...')
+                    .start();
+                }}
+                options={{
+                    autoStart: true,
+                }}
+            />
+        </Styles.TextWrapper>
+    return data
+}
+
 const show = ({name, keyword, user}) => {
     if(user === 'ucp' && keyword){
         const filter = arr.filter( el => {
@@ -588,34 +621,12 @@ const show = ({name, keyword, user}) => {
     }else{
         if(name){
             name = name + "!";
-            if(keywordMessage.hasOwnProperty('keyword') === keyword){
-                let hour = moment().format("HH");
-                if(keyword === keywordMessage.goodnight){
-                    if(hour > 20 && hour < 4){
-                        const filter = arr.filter( el => {
-                            return el.keyword === keyword
-                        }).map((obj, index) => (obj.data))
-                        const item = filter[Math.floor(Math.random()*filter.length)];
-                        return item
-                    }else{
-                        return(<Typewriter
-                            onInit={(typewriter) => {
-                                typewriter.typeString(`Hai ${name}`)
-                                .pauseFor(1000)
-                                .start();
-                            }}
-                            options={{
-                                autoStart: true,
-                            }}
-                        />)
-                    }
-                }else{
-                    const filter = arr.filter( el => {
-                        return el.keyword === keyword
-                    }).map((obj, index) => (obj.data))
-                    const item = filter[Math.floor(Math.random()*filter.length)];
-                    return item
-                }
+            if(keywordMessage.hasOwnProperty(keyword)){
+                const filter = arr.filter( el => {
+                    return el.keyword === keyword
+                }).map((obj, index) => (obj.data))
+                const item = filter[Math.floor(Math.random()*filter.length)];
+                return item
             }else{
                 let hour = moment().format("HH")
                 if (hour > 4 && hour < 11){
@@ -630,13 +641,13 @@ const show = ({name, keyword, user}) => {
                     }).map((obj, index) => (obj.data))
                     const item = filter[Math.floor(Math.random()*filter.length)];
                     return item
-                }else if(hour > 14 && hour < 18){
+                }else if(hour > 14 && hour < 19){
                     const filter = arr.filter( el => {
-                        return el.keyword === keywordMessage.quotes || el.keyword === keywordMessage.gomballucu
+                        return el.keyword === keywordMessage.afternoon
                     }).map((obj, index) => (obj.data))
                     const item = filter[Math.floor(Math.random()*filter.length)];
                     return item
-                }else if(hour >= 18 && hour < 24){
+                }else if(hour > 18 && hour < 24){
                     const filter = arr.filter( el => {
                         return el.keyword === keywordMessage.night
                     }).map((obj, index) => (obj.data))
@@ -746,6 +757,10 @@ const TypeWriter = ({ query }) => {
     arr.push({
         keyword: keywordMessage.quotes,
         data: quotes2(name, 1)
+    })
+    arr.push({
+        keyword: keywordMessage.afternoon,
+        data: afternoon(name, 1)
     })
     return(
         <Styles.Item>
