@@ -71,35 +71,35 @@ const goodnight = (name, key) => {
     return data
 }
 
-const daylight = (name, key) => {
-    const n = name ? name: 'Kamu';
-    const text1 = `Buat ${n} yang selalu aku sayangi.`;
-    const text2 = '<br><br>Jangan lupa makan siang, ya!'
-    const text3 = '<br><br>Aku di sini selalu merindukanmu :D'
+// const daylight = (name, key) => {
+//     const n = name ? name: 'Kamu';
+//     const text1 = `Buat ${n} yang selalu aku sayangi.`;
+//     const text2 = '<br><br>Jangan lupa makan siang, ya!'
+//     const text3 = '<br><br>Aku di sini selalu merindukanmu :D'
     
-    const data = 
-        <Styles.TextWrapper key={key}>
-            <Typewriter
-                onInit={(typewriter) => {
-                    typewriter.typeString(text1)
-                    .pauseFor(500)
-                    .typeString(text2)
-                    .pauseFor(1000)
-                    .typeString(text3)
-                    .pauseFor(1000)
-                    .deleteAll(0.000000001)
-                    .typeString('...<br><br><br>')
-                    .typeString(`Dari Ucup untuk ${n}`)
-                    .typeString('<br><br>...')
-                    .start();
-                }}
-                options={{
-                    autoStart: true,
-                }}
-            />
-        </Styles.TextWrapper>
-    return data
-}
+//     const data = 
+//         <Styles.TextWrapper key={key}>
+//             <Typewriter
+//                 onInit={(typewriter) => {
+//                     typewriter.typeString(text1)
+//                     .pauseFor(500)
+//                     .typeString(text2)
+//                     .pauseFor(1000)
+//                     .typeString(text3)
+//                     .pauseFor(1000)
+//                     .deleteAll(0.000000001)
+//                     .typeString('...<br><br><br>')
+//                     .typeString(`Dari Ucup untuk ${n}`)
+//                     .typeString('<br><br>...')
+//                     .start();
+//                 }}
+//                 options={{
+//                     autoStart: true,
+//                 }}
+//             />
+//         </Styles.TextWrapper>
+//     return data
+// }
 
 const daylight2 = (name, key) => {
     const n = name ? name: 'Maniis';
@@ -137,9 +137,10 @@ const daylight2 = (name, key) => {
 const daylight3 = (name, key) => {
     const n = name ? name: 'Maniiis';
     const text1 = `Hai, ${n}! Aku belum makan siang, nih.`;
-    const text2 = '<br><br>Soalnya, tadi mau makan nasinya anget langsung aja aku bawa ke dokter.'
-    const text3 = `<br><br>Takut kenapa-napa. Hehehe. `
-    const text4 = '<br><br>Kamu jangan lupa makan siang, ya!'
+    const text2 = '<br><br>Soalnya, tadi mau makan nasinya anget'
+    const text3 = ' langsung aja aku bawa ke dokter.'
+    const text4 = `<br><br>Takut kenapa-napa. Hehehe. `
+    const text5 = '<br><br>Kamu jangan lupa makan siang, ya!'
  
     const data = 
         <Styles.TextWrapper key={key}>
@@ -149,10 +150,11 @@ const daylight3 = (name, key) => {
                     .pauseFor(500)
                     .typeString(text2)
                     .pauseFor(1000)
-                    .pauseFor(500)
                     .typeString(text3)
                     .pauseFor(500)
                     .typeString(text4)
+                    .pauseFor(1000)
+                    .typeString(text5)
                     .pauseFor(1000)
                     .deleteAll(0.000000000000001)
                     .typeString('...<br><br><br>')
@@ -314,32 +316,32 @@ const gomballucu = (name, key) => {
     return data
 } 
 
-const morning = (name, key) => {
-    const n = name ? name: 'kamu';
-    const text1 = `Selamat pagi`;
-    const text2 = ` untuk wanita paling cantik yang pernah ada!`;
+// const morning = (name, key) => {
+//     const n = name ? name: 'kamu';
+//     const text1 = `Selamat pagi`;
+//     const text2 = ` untuk wanita paling cantik yang pernah ada!`;
  
-    const data = 
-        <Styles.TextWrapper key={key}>
-            <Typewriter
-                onInit={(typewriter) => {
-                    typewriter.typeString(text1)
-                    .pauseFor(600)
-                    .typeString(text2)
-                    .pauseFor(1000)
-                    .deleteAll(0.000000000000001)
-                    .typeString('...<br><br><br>')
-                    .typeString(`Dari Ucup untuk ${n}`)
-                    .typeString('<br><br>...')
-                    .start();
-                }}
-                options={{
-                    autoStart: true,
-                }}
-            />
-        </Styles.TextWrapper>
-    return data
-}
+//     const data = 
+//         <Styles.TextWrapper key={key}>
+//             <Typewriter
+//                 onInit={(typewriter) => {
+//                     typewriter.typeString(text1)
+//                     .pauseFor(600)
+//                     .typeString(text2)
+//                     .pauseFor(1000)
+//                     .deleteAll(0.000000000000001)
+//                     .typeString('...<br><br><br>')
+//                     .typeString(`Dari Ucup untuk ${n}`)
+//                     .typeString('<br><br>...')
+//                     .start();
+//                 }}
+//                 options={{
+//                     autoStart: true,
+//                 }}
+//             />
+//         </Styles.TextWrapper>
+//     return data
+// }
 
 const morning2 = (name, key) => {
     const n = name ? name: 'Kamu';
@@ -410,32 +412,32 @@ const morning3 = (name, key) => {
     return data
 }
 
-const morning4 = (name, key) => {
-    const n = name ? name: 'Kamu';
-    const text1 = `Selamat pagi,`;
-    const text2 = ' semoga kamu lebih peka dari hari kemarin.';
+// const morning4 = (name, key) => {
+//     const n = name ? name: 'Kamu';
+//     const text1 = `Selamat pagi,`;
+//     const text2 = ' semoga kamu lebih peka dari hari kemarin.';
  
-    const data = 
-        <Styles.TextWrapper key={key}>
-            <Typewriter
-                onInit={(typewriter) => {
-                    typewriter.typeString(text1)
-                    .pauseFor(1000)
-                    .typeString(text2)
-                    .pauseFor(500)
-                    .deleteAll(0.000000000000001)
-                    .typeString('...<br><br><br>')
-                    .typeString(`Dari Ucup untuk ${n}`)
-                    .typeString('<br><br>...')
-                    .start();
-                }}
-                options={{
-                    autoStart: true,
-                }}
-            />
-        </Styles.TextWrapper>
-    return data
-}
+//     const data = 
+//         <Styles.TextWrapper key={key}>
+//             <Typewriter
+//                 onInit={(typewriter) => {
+//                     typewriter.typeString(text1)
+//                     .pauseFor(1000)
+//                     .typeString(text2)
+//                     .pauseFor(500)
+//                     .deleteAll(0.000000000000001)
+//                     .typeString('...<br><br><br>')
+//                     .typeString(`Dari Ucup untuk ${n}`)
+//                     .typeString('<br><br>...')
+//                     .start();
+//                 }}
+//                 options={{
+//                     autoStart: true,
+//                 }}
+//             />
+//         </Styles.TextWrapper>
+//     return data
+// }
 
 // const morning5 = (name, key) => {
 //     const n = name ? name: 'Kamu';
@@ -582,8 +584,9 @@ const quotes2 = (name, key) => {
 const afternoon = (name, key) => {
     const text1 = `Jadilah pribadi yang apa adanya, `;
     const text2 = 'sampai kamu tidak butuh lelah bersandiwara.';
-    const text3 = '<br><br>Terkadang bukan nasib yang yang susah tapi kamu yang menyulitkan nasib.'
-    const text4 = `<br><br>Met sore ${name}...`
+    const text3 = '<br><br>Terkadang bukan nasib yang susah';
+    const text4 = ' tapi kamu yang menyulitkan nasib.'
+    const text5 = `<br><br>Met sore ${name}...`
 
     const data = 
         <Styles.TextWrapper key={key}>
@@ -597,9 +600,11 @@ const afternoon = (name, key) => {
                     .pauseFor(500)
                     .typeString(text4)
                     .pauseFor(1000)
+                    .typeString(text5)
+                    .pauseFor(1000)
                     .deleteAll(0.000000000000001)
                     .typeString('...<br><br><br>')
-                    .typeString(`Terima Kasih`)
+                    .typeString(`Dari Ucup untuk ${name}`)
                     .typeString('<br><br>...')
                     .start();
                 }}
@@ -620,7 +625,7 @@ const show = ({name, keyword, user}) => {
         return item;
     }else{
         if(name){
-            name = name + "!";
+            const nameCapital = capitalizeTheFirstLetterOfEachWord(String(name).toLowerCase());
             if(keywordMessage.hasOwnProperty(keyword)){
                 const filter = arr.filter( el => {
                     return el.keyword === keyword
@@ -647,7 +652,7 @@ const show = ({name, keyword, user}) => {
                     }).map((obj, index) => (obj.data))
                     const item = filter[Math.floor(Math.random()*filter.length)];
                     return item
-                }else if(hour > 18 && hour < 24){
+                }else if(hour > 18 && hour <= 24){
                     const filter = arr.filter( el => {
                         return el.keyword === keywordMessage.night
                     }).map((obj, index) => (obj.data))
@@ -657,7 +662,7 @@ const show = ({name, keyword, user}) => {
                     return(
                         <Typewriter
                             onInit={(typewriter) => {
-                                typewriter.typeString(`Hai ${name}!`)
+                                typewriter.typeString(`Hai ${nameCapital}!`)
                                 .pauseFor(1000)
                                 .start();
                             }}
@@ -672,7 +677,7 @@ const show = ({name, keyword, user}) => {
             return(
                 <Typewriter
                             onInit={(typewriter) => {
-                                typewriter.typeString("Hai Maniiis")
+                                typewriter.typeString("Hai!")
                                 .pauseFor(1000)
                                 .start();
                             }}
@@ -687,80 +692,78 @@ const show = ({name, keyword, user}) => {
 
 const TypeWriter = ({ query }) => {
     let { name } = query;
-    if(name){
-        name = capitalizeTheFirstLetterOfEachWord(String(name).toLowerCase());
-    }
+    const nameCapital = name ? capitalizeTheFirstLetterOfEachWord(String(name).toLowerCase()): false;
     arr.push({
         keyword: 'goodnight',
-        data: goodnight(name, 0)
+        data: goodnight(nameCapital, 0)
+    })
+    // arr.push({
+    //     keyword: 'daylight',
+    //     data: daylight(nameCapital, 0)
+    // })
+    arr.push({
+        keyword: 'daylight',
+        data: daylight2(nameCapital, 1)
     })
     arr.push({
         keyword: 'daylight',
-        data: daylight(name, 0)
+        data: daylight3(nameCapital, 1)
     })
     arr.push({
         keyword: 'daylight',
-        data: daylight2(name, 1)
-    })
-    arr.push({
-        keyword: 'daylight',
-        data: daylight3(name, 1)
-    })
-    arr.push({
-        keyword: 'daylight',
-        data: daylight4(name, 1)
+        data: daylight4(nameCapital, 1)
     })
     arr.push({
         keyword: 'gettingsick',
-        data: gettingSick(name, 1)
+        data: gettingSick(nameCapital, 1)
     })
     arr.push({
         keyword: keywordMessage.night,
-        data: night(name, 1)
+        data: night(nameCapital, 1)
     })
     arr.push({
         keyword: keywordMessage.gomballucu,
-        data: gomballucu(name, 1)
+        data: gomballucu(nameCapital, 1)
+    })
+    // arr.push({
+    //     keyword: keywordMessage.morning,
+    //     data: morning(name, 1)
+    // })
+    arr.push({
+        keyword: keywordMessage.morning,
+        data: morning2(nameCapital, 1)
     })
     arr.push({
         keyword: keywordMessage.morning,
-        data: morning(name, 1)
+        data: morning3(nameCapital, 1)
     })
-    arr.push({
-        keyword: keywordMessage.morning,
-        data: morning2(name, 1)
-    })
-    arr.push({
-        keyword: keywordMessage.morning,
-        data: morning3(name, 1)
-    })
-    arr.push({
-        keyword: keywordMessage.morning,
-        data: morning4(name, 1)
-    })
+    // arr.push({
+    //     keyword: keywordMessage.morning,
+    //     data: morning4(name, 1)
+    // })
     // arr.push({
     //     keyword: keywordMessage.morning,
     //     data: morning5(name, 1)
     // })
     arr.push({
         keyword: keywordMessage.morning,
-        data: morning6(name, 1)
+        data: morning6(nameCapital, 1)
     })
     arr.push({
         keyword: keywordMessage.morning,
-        data: morning7(name, 1)
+        data: morning7(nameCapital, 1)
     })
     arr.push({
         keyword: keywordMessage.quotes,
-        data: quotes(name, 1)
+        data: quotes(nameCapital, 1)
     })
     arr.push({
         keyword: keywordMessage.quotes,
-        data: quotes2(name, 1)
+        data: quotes2(nameCapital, 1)
     })
     arr.push({
         keyword: keywordMessage.afternoon,
-        data: afternoon(name, 1)
+        data: afternoon(nameCapital, 1)
     })
     return(
         <Styles.Item>
